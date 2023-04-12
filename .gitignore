@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyCharm specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Environment
+venv/
+.env/
+
+# Other
+*.DS_Store
+tests/
