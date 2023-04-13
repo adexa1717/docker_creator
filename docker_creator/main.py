@@ -3,14 +3,22 @@ import docker
 import argparse
 
 
-def main():
-    #parse arguments
+def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--docker-image", dest="docker_image", type=str, help="Name of Docker image.")
-    parser.add_argument("--bash-command", dest="bash_command", type=str, help="A bash command that runs inside a Docker image.")
-    args = parser.parse_args()
+    parser.add_argument("--bash-command", dest="bash_command", type=str,
+                        help="A bash command that runs inside a Docker image.")
+    parser.add_argument("--aws-cloudwatch-group", dest="aws_group", type=str, help="A name of an AWS CloudWatch group")
+    parser.add_argument("--aws-cloudwatch-stream", dest="aws_stream", type=str,
+                        help="A name of an AWS CloudWatch stream")
+    parser.add_argument("--aws-access-key-id", dest="kwy_id", type=str, help="AWS access key ID")
+    parser.add_argument("--aws-secret-access-key", dest="access_key", type=str, help="AWS secret access key")
+    parser.add_argument("--aws-region", dest="region", type=str, help="A name of an AWS region")
+    return parser.parse_args()
 
 
+def main():
+    args = get_args()
     # create a Docker client
     client = docker.from_env()
 
@@ -20,13 +28,6 @@ def main():
     # print the container ID
     print("Container ID:", container.id)
 
-    # print the container ID
-    print("bash_command:", args.bash_command)
-
-    # print the container ID
-    print("docker_image:", args.docker_image)
-
 
 if __name__ == "__main__":
     main()
-
