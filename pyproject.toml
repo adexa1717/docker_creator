@@ -9,6 +9,7 @@ packages = [{include = "docker_creator"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 docker = "^6.0.1"
+boto3 = "^1.26.114"
 
 
 [build-system]
